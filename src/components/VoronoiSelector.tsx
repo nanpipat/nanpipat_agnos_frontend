@@ -12,7 +12,7 @@ interface VoronoiSelectorProps {
   width: number;
   height: number;
   points: Point[];
-  onSelect: (id: string) => void;
+  onSelect: (id: string, x: number, y: number) => void;
   selectedArea: string | null;
 }
 
@@ -50,8 +50,19 @@ const VoronoiSelector: React.FC<VoronoiSelectorProps> = ({
       .on("click", (event, d) => {
         const [x, y] = d3.pointer(event);
         console.log(`Clicked at x: ${x}, y: ${y}`);
-        onSelect(d.id);
+        onSelect(d.id, x, y);
       });
+
+    // // Add points for visualization (remove in production)
+    // svg
+    //   .selectAll("circle")
+    //   .data(points)
+    //   .enter()
+    //   .append("circle")
+    //   .attr("cx", (d) => d.x)
+    //   .attr("cy", (d) => d.y)
+    //   .attr("r", 3)
+    //   .attr("fill", "red");
   }, [width, height, points, onSelect]);
 
   return (

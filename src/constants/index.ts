@@ -19,7 +19,7 @@ export const fingerAreas: Area[] = [
 ];
 
 export const abdominalVoronoiPoints: VoronoiPoint[] = [
-  { x: 64, y: 64, id: "ruq" },
+  { x: 50, y: 64, id: "ruq" },
   { x: 192, y: 64, id: "luq" },
   { x: 64, y: 192, id: "rlq" },
   { x: 180, y: 192, id: "llq" },

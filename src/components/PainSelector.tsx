@@ -24,6 +24,11 @@ const PainSelector: React.FC<PainSelectorProps> = ({
   title,
   voronoiPoints,
 }) => {
+  const handleSelect = (id: string, x: number, y: number) => {
+    console.log(`Selected area: ${id} at x: ${x}, y: ${y}`);
+    setSelectedArea(id);
+  };
+
   const renderSelectedAreaImage = () => {
     if (!selectedArea) return null;
 
@@ -51,7 +56,7 @@ const PainSelector: React.FC<PainSelectorProps> = ({
           <>
             <Image
               src={highlightImage.replace("{area}", selectedArea)}
-              alt={`${selectedArea} รูปภาพ`}
+              alt={`${selectedArea} ภาพ`}
               layout="fill"
               objectFit="contain"
             />
@@ -81,7 +86,7 @@ const PainSelector: React.FC<PainSelectorProps> = ({
           width={256}
           height={256}
           points={voronoiPoints}
-          onSelect={setSelectedArea}
+          onSelect={handleSelect}
           selectedArea={selectedArea}
         />
       </div>
