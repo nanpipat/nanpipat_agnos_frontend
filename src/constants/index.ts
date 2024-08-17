@@ -7,7 +7,7 @@ export const abdominalAreas: Area[] = [
   { id: "llq", name: "ช่องท้องซ้ายล่าง" },
   { id: "epigastrium", name: "ลิ้นปี่" },
   { id: "umbilicus", name: "รอบสะดือ" },
-  { id: "suprapubic", name: "เหนือหัวเหน่า" },
+  { id: "suprapubic", name: "ท้องน้อย" },
   { id: "all-over", name: "ทั่วทั้งท้อง" },
 ];
 
@@ -19,17 +19,19 @@ export const fingerAreas: Area[] = [
 ];
 
 export const abdominalVoronoiPoints: VoronoiPoint[] = [
-  { x: 100, y: 50, id: "ruq" },
-  { x: 150, y: 50, id: "luq" },
-  { x: 100, y: 150, id: "rlq" },
-  { x: 150, y: 150, id: "llq" },
-  { x: 125, y: 75, id: "epigastrium" },
-  { x: 125, y: 125, id: "umbilicus" },
-  { x: 125, y: 175, id: "suprapubic" },
+  { x: 64, y: 64, id: "ruq" },
+  { x: 192, y: 64, id: "luq" },
+  { x: 64, y: 192, id: "rlq" },
+  { x: 180, y: 192, id: "llq" },
+  { x: 128, y: 64, id: "epigastrium" },
+  { x: 110, y: 128, id: "umbilicus" },
+  { x: 128, y: 192, id: "suprapubic" },
+  { x: 128, y: 194, id: "all-over" },
 ];
 
 export const fingerVoronoiPoints: VoronoiPoint[] = [
-  { x: 50, y: 200, id: "mcp" },
-  { x: 125, y: 125, id: "pip" },
-  { x: 200, y: 50, id: "dip" },
+  { x: 128, y: 192, id: "mcp" },
+  { x: 128, y: 128, id: "pip" },
+  { x: 128, y: 64, id: "dip" },
+  { x: 136, y: 243, id: "others" },
 ];

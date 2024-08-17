@@ -13,6 +13,7 @@ interface VoronoiSelectorProps {
   height: number;
   points: Point[];
   onSelect: (id: string) => void;
+  selectedArea: string | null;
 }
 
 const VoronoiSelector: React.FC<VoronoiSelectorProps> = ({
@@ -20,6 +21,7 @@ const VoronoiSelector: React.FC<VoronoiSelectorProps> = ({
   height,
   points,
   onSelect,
+  selectedArea,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -43,11 +45,23 @@ const VoronoiSelector: React.FC<VoronoiSelectorProps> = ({
       .append("path")
       .attr("d", (_, i) => voronoi.renderCell(i))
       .attr("fill", "transparent")
-      .attr("stroke", "#ccc")
-      .on("click", (event, d) => onSelect(d.id));
+      .attr("stroke", "none")
+      .style("cursor", "pointer")
+      .on("click", (event, d) => {
+        const [x, y] = d3.pointer(event);
+        console.log(`Clicked at x: ${x}, y: ${y}`);
+        onSelect(d.id);
+      });
   }, [width, height, points, onSelect]);
 
-  return <svg ref={svgRef} width={width} height={height}></svg>;
+  return (
+    <svg
+      ref={svgRef}
+      width={width}
+      height={height}
+      style={{ position: "absolute", top: 0, left: 0, pointerEvents: "all" }}
+    />
+  );
 };
 
 export default VoronoiSelector;

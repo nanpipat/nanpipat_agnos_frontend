@@ -5,7 +5,7 @@ import {
   fingerAreas,
   abdominalVoronoiPoints,
   fingerVoronoiPoints,
-} from "../utils/constants";
+} from "../constants";
 
 export default function Home() {
   const [selectedAbdomen, setSelectedAbdomen] = useState<string | null>(null);
